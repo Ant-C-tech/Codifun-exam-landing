@@ -1,3 +1,9 @@
+body {
+    max-width: 1980px;
+    margin: 0 auto;
+    -webkit-font-smoothing: antialiased;
+}
+
 /* Font */
 
 .font {
@@ -375,7 +381,6 @@
 /* Testimonials */
 
 .testimonials {
-    /* background: rgba(41, 202, 142, 0.1); */
     background: rgba(130, 136, 203, 0.2);
     padding-bottom: 10px;
 }
@@ -409,4 +414,81 @@
 
 .testimonials .owl-dots .active {
     background: #29ca8e;
+}
+
+/* Contacts */
+
+.contacts-container {
+    background: rgba(41, 202, 142, 0.6);
+    border-radius: 5px;
+}
+
+.contacts-inp {
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.contacts-textarea {
+    outline: none;
+}
+
+.btn-contactsForm {
+    background: #79a8c6;
+    border: none;
+}
+
+.contacts-img {
+    border-radius: 10px;
+}
+
+@media screen and (max-width:992px) {
+    .btn-contactsForm {
+        margin-bottom: 15px;
+    }
+}
+
+/* Map */
+
+.map {
+    background: rgba(41, 202, 142, 0.2);
+    padding-bottom: 30px;
+}
+
+/* Footer */
+
+footer {
+    background: rgb(48, 43, 43);
+}
+
+.footer-formInp {
+    background: rgb(48, 43, 43);
+    border: none;
+    border-radius: 0;
+    outline: none;
+    border-bottom: 1px solid #ffffff;
+}
+
+.form-control:focus {
+
+    outline: none !important;
+    border: none !important;
+    background: rgb(48, 43, 43);
+    border-radius: 3px;
+}
+
+.footer-btn {
+    max-width: 150px;
+}
+
+.footer-btn:hover {
+    background: #29ca8e;
+    color: #fff;
+    font-weight: bold;
+}
+
+@media screen and (max-width:992px) {
+    .footer-title {
+        margin-top: 20px !important;
+    }
 }

@@ -94,9 +94,10 @@ window.onload = function () {
             item.style.height = 'auto'
         }
 
-        setTimeout(() => setCardHeight(slides, card), 250)
-        setTimeout(addDots, 250)
-
+        setTimeout(function () {
+            setCardHeight(slides, card)
+            addDots
+        }, 350)
     }
 
     $(".testimonials-slider").owlCarousel({
