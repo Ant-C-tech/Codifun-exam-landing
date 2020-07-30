@@ -13,7 +13,8 @@ body {
 /* Section */
 
 .section-title {
-    margin: 0 auto;
+    text-align: center;
+    display: inline-block;
     width: fit-content;
     border-bottom: 3px solid #8288cb;
 }
