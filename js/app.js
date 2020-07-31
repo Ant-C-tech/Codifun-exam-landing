@@ -2,6 +2,19 @@
 
 window.onload = function () {
 
+    const navItemCollection = document.querySelectorAll('.navbar-nav-first .nav-item')
+    for (let elem of navItemCollection) {
+        elem.addEventListener("click", navItemClassToggle)
+    }
+    
+
+    function navItemClassToggle() {
+        for (let elem of navItemCollection) {
+            elem.classList.remove('navItem-active')
+        }
+        this.classList.add('navItem-active')
+    }
+
     $(".main-slider").owlCarousel({
         items: 1,
         loop: true,
@@ -16,9 +29,15 @@ window.onload = function () {
     window.addEventListener("resize", setSliderHeight)
 
     function setSliderHeight() {
-        const slideCollection = document.querySelectorAll('.owl-item')
-        for (let item of slideCollection) {
-            item.style.height = document.documentElement.clientHeight - 120 + 'px'
+        const slideCollection = document.querySelectorAll('.main-slider .owl-item')
+        if (document.documentElement.clientHeight < 1280) {
+            for (let item of slideCollection) {
+                item.style.height = document.documentElement.clientHeight - 120 + 'px'
+            }
+        } else {
+            for (let item of slideCollection) {
+                item.style.height = 1280 + 'px'
+            }
         }
     }
 
@@ -97,7 +116,7 @@ window.onload = function () {
         setTimeout(function () {
             setCardHeight(slides, card)
             addDots
-        }, 350)
+        }, 550)
     }
 
     $(".testimonials-slider").owlCarousel({
@@ -145,20 +164,30 @@ window.onload = function () {
     window.addEventListener("resize", () => setCardHeightAfterResize('.testimonials-slider .owl-item', '.card-testimonials'))
 
 
-    var wow = new WOW(
-        {
-          boxClass:     'wow',      // animated element css class (default is wow)
-          animateClass: 'animated', // animation css class (default is animated)
-          offset:       0,          // distance to the element when triggering the animation (default is 0)
-          mobile:       true,       // trigger animations on mobile devices (default is true)
-          live:         true,       // act on asynchronously loaded content (default is true)
-          callback:     function(box) {
+    var wow = new WOW({
+        boxClass: 'wow', // animated element css class (default is wow)
+        animateClass: 'animated', // animation css class (default is animated)
+        offset: 0, // distance to the element when triggering the animation (default is 0)
+        mobile: true, // trigger animations on mobile devices (default is true)
+        live: true, // act on asynchronously loaded content (default is true)
+        callback: function (box) {
             // the callback is fired every time an animation is started
             // the argument that is passed in is the DOM node being animated
-          },
-          scrollContainer: null,    // optional scroll container selector, otherwise use window,
-          resetAnimation: true,     // reset animation on end (default is true)
+        },
+        scrollContainer: null, // optional scroll container selector, otherwise use window,
+        resetAnimation: true, // reset animation on end (default is true)
+    });
+    wow.init();
+
+    setMapHeight()
+    window.addEventListener("resize", setMapHeight)
+
+    function setMapHeight() {
+        const mapFrame = document.querySelector('.mapFrame')
+        if (document.documentElement.clientHeight < 600) {
+            mapFrame.style.height = document.documentElement.clientHeight + 'px'
+        } else {
+            mapFrame.style.height = 600 + 'px'
         }
-      );
-      wow.init();
+    }
 }
